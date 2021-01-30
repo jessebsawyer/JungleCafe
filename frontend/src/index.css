@@ -1,0 +1,163 @@
+main {
+  min-height: 80vh;
+}
+
+h3 {
+  padding: 1rem 0;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+/* Header */
+header {
+  background-color: rgb(58, 79, 62);
+}
+
+.jungle {
+  color: #11a73e;
+}
+
+.slogan {
+  font-size: 10px;
+  line-height: 0;
+  color: #fff;
+}
+
+.slogan p {
+  margin-top: 8px;
+}
+
+.slogan-two {
+  font-style: italic;
+}
+
+/* Home Page */
+.jumbotron {
+  text-align: center;
+  border-radius: 5px;
+  background-image: url(./home.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 60vh;
+  width: 100%;
+  font-weight: bold;
+}
+
+.jumbotron h1 {
+  margin-top: 7rem;
+  color: #fff;
+  font-size: 3rem;
+}
+
+.home-row {
+  text-align: center;
+  background-color: rgb(58, 79, 62);
+  color: white;
+  padding: 40px;
+  border-radius: 5px;
+}
+
+/* About Page */
+.about img {
+  width: 400px;
+  height: 400px;
+}
+
+#about-h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+#about-p {
+  margin-top: 2rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* carousel */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+}
+
+.carousel {
+  background-color: rgb(58, 79, 62);
+}
+
+.carousel img {
+  height: 300px;
+  padding: 30px;
+  margin: 40px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel a {
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .carousel-caption h2 {
+    font-size: 2.5vw;
+  }
+}
+
+/* Contact Page */
+#contact-form {
+  background-color: rgb(58, 79, 62);
+  color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.label {
+  float: left;
+}
+
+#form-header {
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+}
+
+#instagram {
+  color: #fff;
+  margin-top: 2.4rem;
+  font-size: 1.5rem;
+}
+
+#facebook {
+  color: #fff;
+  margin-top: 2.4rem;
+  font-size: 1.5rem;
+}
+
+#footer-copy {
+  margin-left: 10rem;
+}
