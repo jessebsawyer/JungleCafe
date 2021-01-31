@@ -18,7 +18,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
     clientSecret,
     redirectUri
   );
-  oAuth2Client.setCredentials({ refreshToken: refreshToken });
+  oAuth2Client.setCredentials({ refresh_token: refreshToken });
   const accessToken = await oAuth2Client.getAccessToken();
 
   const {
@@ -72,6 +72,8 @@ const addOrderItems = asyncHandler(async (req, res) => {
       subject: 'Jungle Cafe Order Request', // Subject line
       html: email, // html body
     });
+
+    console.log(transporter);
 
     console.log('Message sent: %s', info.messageId);
     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>

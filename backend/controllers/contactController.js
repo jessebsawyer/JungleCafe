@@ -13,7 +13,7 @@ const sendContactForm = asyncHandler(async (req, res) => {
     clientSecret,
     redirectUri
   );
-  oAuth2Client.setCredentials({ refreshToken: refreshToken });
+  oAuth2Client.setCredentials({ refresh_token: refreshToken });
   const accessToken = await oAuth2Client.getAccessToken();
 
   const { name, email, phone, message } = req.body;
