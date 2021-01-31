@@ -158,6 +158,23 @@ footer {
   font-size: 1.5rem;
 }
 
-#footer-copy {
-  margin-left: 10rem;
+@media only screen and (min-width: 768px) {
+  #footer-copy {
+    margin-left: 7rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .about img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about {
+    text-align: center;
+  }
+
+  #about-h1 {
+    font-size: 1.8rem;
+  }
 }

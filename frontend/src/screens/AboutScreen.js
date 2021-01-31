@@ -13,7 +13,7 @@ const AboutScreen = () => {
         </Row>
         <Row>
           <Col>
-            <Image src={aboutImage} roundedCircle />
+            <Image id='profile-image' src={aboutImage} roundedCircle />
           </Col>
           <Col id='about-p'>
             <p>
