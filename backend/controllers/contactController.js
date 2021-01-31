@@ -1,7 +1,21 @@
 import asyncHandler from 'express-async-handler';
 import nodemailer from 'nodemailer';
+import { google } from 'googleapis';
 
 const sendContactForm = asyncHandler(async (req, res) => {
+  const clientId = process.env.CLIENT_ID;
+  const clientSecret = process.env.CLIENT_SECRET;
+  const redirectUri = process.env.REDIRECT_URI;
+  const refreshToken = process.env.REFRESH_TOKEN;
+
+  const oAuth2Client = new google.auth.OAuth2(
+    clientId,
+    clientSecret,
+    redirectUri
+  );
+  oAuth2Client.setCredentials({ refreshToken: refreshToken });
+  const accessToken = await oAuth2Client.getAccessToken();
+
   const { name, email, phone, message } = req.body;
   const output = `
   <p>You have a new contact request</p>
@@ -19,15 +33,19 @@ const sendContactForm = asyncHandler(async (req, res) => {
   let transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
+      type: 'OAuth2',
       user: process.env.EMAIL_USER, // generated ethereal user
-      pass: process.env.EMAIL_PASSWORD, // generated ethereal password
+      clientId,
+      clientSecret,
+      refreshToken,
+      accessToken,
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: `"Jungle Cafe" ${process.env.EMAIL_USER}`, // sender address
-    to: 'junglecafescarb@gmail.com', // list of receivers
+    to: 'junglecafescarb@gmail.com, jessebsawyer@gmail.com', // list of receivers
     subject: 'Jungle Cafe Contact Request', // Subject line
     html: output, // html body
   });

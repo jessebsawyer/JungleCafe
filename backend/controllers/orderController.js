@@ -1,11 +1,26 @@
 import asyncHandler from 'express-async-handler';
 import nodemailer from 'nodemailer';
 import Order from '../models/orderModel.js';
+import { google } from 'googleapis';
 
 // @desc    Create new order
 // @route   POST /api/orders
 // @access  Private
 const addOrderItems = asyncHandler(async (req, res) => {
+  // Google API Set up
+  const clientId = process.env.CLIENT_ID;
+  const clientSecret = process.env.CLIENT_SECRET;
+  const redirectUri = process.env.REDIRECT_URI;
+  const refreshToken = process.env.REFRESH_TOKEN;
+
+  const oAuth2Client = new google.auth.OAuth2(
+    clientId,
+    clientSecret,
+    redirectUri
+  );
+  oAuth2Client.setCredentials({ refreshToken: refreshToken });
+  const accessToken = await oAuth2Client.getAccessToken();
+
   const {
     orderItems,
     shippingAddress,
@@ -36,8 +51,12 @@ const addOrderItems = asyncHandler(async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: process.env.EMAIL_USER, // generated ethereal user
-        pass: process.env.EMAIL_PASSWORD, // generated ethereal password
+        type: 'OAuth2',
+        user: process.env.EMAIL_USER,
+        clientId,
+        clientSecret,
+        refreshToken,
+        accessToken,
       },
     });
 
@@ -49,7 +68,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
     // send mail with defined transport object
     let info = await transporter.sendMail({
       from: `"Jungle Cafe Info" ${process.env.EMAIL_USER}`, // sender address
-      to: 'junglecafescarb@gmail.com', // list of receivers
+      to: 'junglecafescarb@gmail.com, jessebsawyer@gmail.com', // list of receivers
       subject: 'Jungle Cafe Order Request', // Subject line
       html: email, // html body
     });
