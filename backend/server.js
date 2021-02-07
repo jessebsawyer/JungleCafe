@@ -1,7 +1,8 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
-import sslRedirect from 'heroku-ssl-redirect';
+import herokuSSLRedirect from 'heroku-ssl-redirect';
+const sslRedirect = herokuSSLRedirect.default;
 import colors from 'colors';
 import morgan from 'morgan';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
