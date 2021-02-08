@@ -138,6 +138,16 @@ header {
 
 #form-header {
   color: #fff;
+  margin-bottom: 0;
+}
+
+#h5 {
+  color: #11a73e;
+  margin-bottom: 1;
+}
+
+#location {
+  margin-bottom: 0;
 }
 
 /* Footer */

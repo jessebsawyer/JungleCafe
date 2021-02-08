@@ -29,7 +29,8 @@ const ContactScreen = () => {
           {success && <Message>Email has been sent.</Message>}
           {error && <Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
-          <p>Toronto, Ontario junglecafescarb@gmail.com</p>
+          <h5 id='h5'>Meals Will Be Delivered Every Sunday</h5>
+          <p id='location'>Toronto, Ontario junglecafescarb@gmail.com</p>
           <p>Tel: 416-200-3056</p>
           <Form onSubmit={onSubmitHandler}>
             <Form.Group controlId='name'>
