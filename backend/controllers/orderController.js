@@ -61,14 +61,14 @@ const addOrderItems = asyncHandler(async (req, res) => {
     });
 
     const email = `
-      <h3>Order Request</h3>
+      <h2>Order Request</h2>
       <p>You have an order request from ${req.user.name}. Please login to check order.</p>
     `;
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
       from: `"Jungle Cafe Info" ${process.env.EMAIL_USER}`, // sender address
-      to: 'junglecafescarb@gmail.com, jessebsawyer@gmail.com', // list of receivers
+      to: 'junglecafescarb@gmail.com', // list of receivers
       subject: 'Jungle Cafe Order Request', // Subject line
       html: email, // html body
     });

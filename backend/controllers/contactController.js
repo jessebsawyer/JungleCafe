@@ -45,7 +45,7 @@ const sendContactForm = asyncHandler(async (req, res) => {
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: `"Jungle Cafe" ${process.env.EMAIL_USER}`, // sender address
-    to: 'junglecafescarb@gmail.com, jessebsawyer@gmail.com', // list of receivers
+    to: 'junglecafescarb@gmail.com', // list of receivers
     subject: 'Jungle Cafe Contact Request', // Subject line
     html: output, // html body
   });
