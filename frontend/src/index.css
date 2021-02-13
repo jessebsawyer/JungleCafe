@@ -142,6 +142,19 @@ header {
   color: #11a73e;
 }
 
+#meal-dtwo {
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+  color: #11a73e;
+}
+
+#meal-dthree {
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+  color: #11a73e;
+}
 /* Contact Page */
 #contact-form {
   background-color: rgb(58, 79, 62);
@@ -205,5 +218,9 @@ footer {
 
   #about-h1 {
     font-size: 1.8rem;
+  }
+
+  #meal-h1 {
+    font-size: 1.5em;
   }
 }
