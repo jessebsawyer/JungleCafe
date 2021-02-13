@@ -34,7 +34,9 @@ const MealScreen = ({ match }) => {
           Go Back
         </Link>
       )}
-      <h1>Select Your Meals</h1>
+      <h1 id='meal-h1'>Select Your Meals</h1>
+      <p id='meal-d'>Deliveries Are Every Sunday From 4PM To 9PM</p>
+      <p id='meal-p'>We Recommend Five Meals Minimum</p>
       {loading ? (
         <Loader />
       ) : error ? (

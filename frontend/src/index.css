@@ -123,6 +123,25 @@ header {
   }
 }
 
+/* Meals Page */
+#meal-h1 {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+#meal-p {
+  text-align: center;
+  font-size: 1.3em;
+  color: #11a73e;
+}
+
+#meal-d {
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
+  color: #11a73e;
+}
+
 /* Contact Page */
 #contact-form {
   background-color: rgb(58, 79, 62);
