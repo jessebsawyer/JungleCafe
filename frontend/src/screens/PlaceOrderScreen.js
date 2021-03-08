@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,8 @@ import Meta from '../components/Meta';
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
+
+  const [tip, setTip] = useState(0);
 
   const cart = useSelector((state) => state.cart);
 
@@ -29,11 +31,15 @@ const PlaceOrderScreen = ({ history }) => {
   );
   cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 5);
   const beforeTax = Number(cart.shippingPrice) + Number(cart.itemsPrice);
+  if (tip < 0) {
+    setTip(0);
+  }
   cart.taxPrice = addDecimals(Number((0.13 * beforeTax).toFixed(2)));
   cart.totalPrice = (
     Number(cart.itemsPrice) +
     Number(cart.shippingPrice) +
-    Number(cart.taxPrice)
+    Number(cart.taxPrice) +
+    Number(tip)
   ).toFixed(2);
 
   const orderCreate = useSelector((state) => state.orderCreate);
@@ -134,6 +140,20 @@ const PlaceOrderScreen = ({ history }) => {
                 <Row>
                   <Col>Shipping</Col>
                   <Col>${cart.shippingPrice}</Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col>Tip</Col>
+                  <Col>
+                    <input
+                      id='tip'
+                      type='number'
+                      min='0'
+                      value={tip}
+                      onChange={(e) => setTip(e.target.value)}
+                    ></input>
+                  </Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>

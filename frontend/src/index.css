@@ -43,6 +43,10 @@ header {
   font-style: italic;
 }
 
+.dropdown {
+  margin-right: 0;
+}
+
 /* Home Page */
 .jumbotron {
   text-align: center;
@@ -104,6 +108,7 @@ header {
 
 .carousel {
   background-color: rgb(58, 79, 62);
+  border-radius: 10px;
 }
 
 .carousel img {
@@ -155,6 +160,12 @@ header {
   margin-bottom: 0.5em;
   color: #11a73e;
 }
+
+/* Place Order Screen */
+#tip {
+  width: 2.5rem;
+}
+
 /* Contact Page */
 #contact-form {
   background-color: rgb(58, 79, 62);
